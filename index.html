@@ -1,7 +1,50 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Test Page</h1>
-<p>I'm hosted with GitHub Pages.  Testing, one, two.</p>
+<ol>
+<li>article length (number of words)</li>
+<li>number of inbound links (links to the blog post from other sites)</li>
+</ol>
+<p>After coming up with your ideas, you tidy up your data into a table.  You have thousands of results, but you just want to take a look at the first few rows to get a feel for the data.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">article length</th>
+<th style="text-align:center">number of inbound links</th>
+<th style="text-align:center">subscribed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">523</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">2146</td>
+<td style="text-align:center">58</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">1148</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">1894</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">yes</td>
+</tr>
+</tbody>
+</table>
+<p>You want to take a little deeper look, so you decide to plot a subset of the data.  Here's what that scatterplot might look like:</p>
+<p><img src="scatter2.png"></p>
+<p>It seems as though there is a separation between the people that subscribed, and those that didn't.  To more clearly show that, you decide to draw that separating line (also known as the decision boundary).</p>
+<p><img src="scatter3.png"></p>
+<p>Now if you were to receive some new data on an article that contains length and number of inbound links, you could predict whether or not a viewer subscribed.  For example, a data point above the decision boundary might indicate someone subscribed, while a point below the decision boundary might be someone who did not subscribe.</p>
+<p><img src="scatter4.png"></p>
+<p>This is the basic idea behind logistic regression (more specifically binary logistic regression, but we'll get to that in a minute).  Given a set of data, you fit a decision boundary such that you can make predictions.  Since our predictions are categorical ("yes", "no"), our problem uses a classification model.  If we had a different problem where we were trying to predict a numerical outcome (say, housing prices), we could try and use a regression model, such as linear regression.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
 </body>
 </html>
