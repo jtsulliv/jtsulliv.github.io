@@ -3,7 +3,9 @@ layout: default
 use_math: true
 ---
 
-
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 This is a tutorial on getting started with logistic regression.  Some of the questions to answer:
 - What is logistic regression?
