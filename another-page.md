@@ -28,6 +28,8 @@ article length|number of inbound links|subscribed
 1148|23|no
 1894|49|yes
 
-$$ 5+5 $$
 
+$$
+   |\psi_1\rangle = a|0\rangle + b|1\rangle
+$$
 [back](./)
