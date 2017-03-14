@@ -2,9 +2,6 @@
 layout: default
 ---
 
-## Welcome to another page
-
-_yay_
 
 # Logistic Regression Part 1 - Getting Started
 
