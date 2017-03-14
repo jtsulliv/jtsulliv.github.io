@@ -27,6 +27,7 @@ article length|number of inbound links|subscribed
 2146|58|yes
 1148|23|no
 1894|49|yes
+\\( x+1 \\)
 
 testing this equation $$ 5+5 $$
 
