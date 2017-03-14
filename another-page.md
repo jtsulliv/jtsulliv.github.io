@@ -29,10 +29,5 @@ article length|number of inbound links|subscribed
 1894|49|yes
 
 
-testing this equation $$ 5+5 $$
-# Block equation
-\begin{equation}
-x+1
-\end{equation}
 
 [back](./)
