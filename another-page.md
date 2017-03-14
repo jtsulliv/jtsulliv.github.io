@@ -28,6 +28,6 @@ article length|number of inbound links|subscribed
 1148|23|no
 1894|49|yes
 
-$$c = \sqrt{a^2 + b^2}$$
+
 
 [back](./)
