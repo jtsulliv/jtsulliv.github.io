@@ -1,6 +1,5 @@
 ---
 layout: default
-use_math: 
 ---
 
 
