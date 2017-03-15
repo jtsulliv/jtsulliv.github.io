@@ -14,8 +14,7 @@ This is a tutorial on getting started with logistic regression.  Some of the qu
 
 ## A simple example
 Before we get into the details of logistic regression, let's start with an example.  
-
-Imagine that you work for the marketing department at a tech startup, and you have a wealth of data from your Google Analytics *link here* account.  The majority of the company's marketing is done via the site's blog.  Your goal is to improve the conversion rate of blog viewers into email subscribers.  After brainstorming what factors you think might influence people to subscribe, you come up with the following two:
+here* account.  The majority of the company's marketing is done via the site's blog.  Your goal is to improve the conversion rate of blog viewers into email subscribers.  After brainstorming what factors you think might influence people to subscribe, you come up with the following two:
 1. article length (number of words)
 2. number of inbound links (links to the blog post from other sites)
 
@@ -28,9 +27,11 @@ article length|number of inbound links|subscribed
 1148|23|no
 1894|49|yes
 
-this is a test $ 5+5 $
+
+ 
 
 ### another test
 this is another test $$ 5+5 $$
 
+$$ x^2 + y^2 $$
 [back](./)
