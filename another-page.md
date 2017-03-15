@@ -33,5 +33,8 @@ article length|number of inbound links|subscribed
 ### another test
 this is another test $$ 5+5 $$
 
-$$ x^2 + y^2 $$
+$$ 
+x^2 + y^2 
+$$
+
 [back](./)
