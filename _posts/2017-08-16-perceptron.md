@@ -251,7 +251,16 @@ The weights are identical to those from the spreadsheet calculations.  Another u
     plt.title('Perceptron Convergence')
         
 
-![png](/images/perceptron/output_7_1.png?raw=True)
+
+
+
+    <matplotlib.text.Text at 0xa820198>
+
+
+
+
+![png](output_7_1.png)
+
 
 I can see from the results that by the fourth epoch the results have converged.  This is also consistent with the results from the spreadsheet.  
 
