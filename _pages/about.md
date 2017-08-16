@@ -2,8 +2,9 @@
 title: "About"
 permalink: /about/
 header:
-  # image: "niagara_falls.jpg"
+  image: "niagara_falls.jpg"
 
 ---
 
-This is a test page.
+I'm a Senior Analyst in a consulting role to the government, with a background in computational physics, mathematical modeling, and numerical methods. 
+

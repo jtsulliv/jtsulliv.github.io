@@ -1,12 +1,10 @@
-# main links
+# main links links
 main:
   - title: "about"
     url: /about/
+
   - title: "data science"
     url: /datascience/
-  - title: "sample posts"
-    url: /sampleposts/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+
+  - title: "computational physics"
+    url: /computational-physics/

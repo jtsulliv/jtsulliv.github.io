@@ -24,38 +24,38 @@ $(document).ready(function(){
 
   // FitVids init
   $("#main").fitVids();
-  
-    // init sticky sidebar 
-29   $(".sticky").Stickyfill(); 
-30 
-31   var stickySideBar = function(){ 
-32     var show = $(".author__urls-wrapper button").length === 0 ? $(window).width() > 1024 : !$(".author__urls-wrapper button").is(":visible"); 
-33     // console.log("has button: " + $(".author__urls-wrapper button").length === 0); 
-34     // console.log("Window Width: " + windowWidth); 
-35     // console.log("show: " + show); 
-36     //old code was if($(window).width() > 1024) 
-37     if (show) { 
-38       // fix 
-39       Stickyfill.rebuild(); 
-40       Stickyfill.init(); 
-41       $(".author__urls").show(); 
-42     } else { 
-43       // unfix 
-44       Stickyfill.stop(); 
-45       $(".author__urls").hide(); 
-46     } 
-47   }; 
-48 
-49   stickySideBar(); 
-50 
-51   $(window).resize(function(){ 
-52     stickySideBar(); 
-53   }); 
 
+  // init sticky sidebar
+  $(".sticky").Stickyfill();
+
+  var stickySideBar = function(){
+    var show = $(".author__urls-wrapper button").length === 0 ? $(window).width() > 1024 : !$(".author__urls-wrapper button").is(":visible");
+    // console.log("has button: " + $(".author__urls-wrapper button").length === 0);
+    // console.log("Window Width: " + windowWidth);
+    // console.log("show: " + show);
+    //old code was if($(window).width() > 1024)
+    if (show) {
+      // fix
+      Stickyfill.rebuild();
+      Stickyfill.init();
+      $(".author__urls").show();
+    } else {
+      // unfix
+      Stickyfill.stop();
+      $(".author__urls").hide();
+    }
+  };
+
+  stickySideBar();
+
+  $(window).resize(function(){
+    stickySideBar();
+  });
 
   // Follow menu drop down
+
   $(".author__urls-wrapper button").on("click", function() {
-    $(".author__urls").toggleClass("is--visible");
+    $(".author__urls").fadeToggle("fast", function() {});
     $(".author__urls-wrapper button").toggleClass("open");
   });
 
