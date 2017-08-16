@@ -33,7 +33,12 @@ The Perceptron is pretty straightforward.  Here's the basics:
 
 $$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
 
-$$\hat{y}^1_1 =\begin{cases}1 & \text{if }f \gt z\\0 & \text{otherwise}.\end{cases} $$
+$$
+	\hat{y}^1_1 =\begin{cases}
+		1 & \text{if }f \gt z\\
+		0 & \text{otherwise}.
+		\end{cases}
+$$
   
 3.  Update the $$k$$ weights  
 
@@ -47,60 +52,74 @@ $$ \vdots $$
 
 $$ w^2_k = w^1_k + \eta [y_1-\hat{y}^1_1]x_{1k} $$ 
 
-4.  Increment the time-step to $$n=n+1$$.  If the final time-step $$t$$ hasn't been reached, go back to step 2., repeating the process for the next training sample $i$.  
+4.  Increment the time-step to $$n=n+1$$.  If the final time-step $$t$$ hasn't been reached, go back to step 2., repeating the process for the next training sample $$i$$.  
 
-It should be noted that this isn't exactly identical to Rosenblatt's original Perceptron, which used the $signum function$ for activation.$$ $$ $$sgn(f) =\begin{cases}
+It should be noted that this isn't exactly identical to Rosenblatt's original Perceptron, which used the $$signum function$$ for activation.
+
+$$
+sgn(f) =\begin{cases}
     1 & \text{if }f \gt 0\\
     -1 & \text{if }f \lt 0.
-  \end{cases} $$ $$ $$
-The form we'll be implementing allows us some flexibility in choosing a threshold for our activation function.  It also allows us to implement $1$ and $0$ for the outputs, which is typical for binary classification.
+  \end{cases}
+$$
 
-##Stochastic Gradient Descent
-It's interesting to note that the Perceptron is identical to Stochastic Gradient Descent (SGD) on the following Sum-Of-Squared Error (SSE) loss function $J(w)$ where $y_i$ is the true output, $\hat{y}_i(w)$ is the predicted output, and $w$ is the weight: $$ J(w) = \sum_{i=1}^m{\frac{1}2(y_i-\hat{y}_i(w))^2}$$
+The form we'll be implementing allows us some flexibility in choosing a threshold for our activation function.  It also allows us to implement $$1$$ and $$0$$ for the outputs, which is typical for binary classification.
 
-We start by approximating the gradient at a single point $i$ using SGD:  
+## Stochastic Gradient Descent
+It's interesting to note that the Perceptron is identical to Stochastic Gradient Descent (SGD) on the following Sum-Of-Squared Error (SSE) loss function $$J(w)$$ where $$y_i$$ is the true output, $$\hat{y}_i(w)$$ is the predicted output, and $$w$$ is the weight: 
+
+$$ J(w) = \sum_{i=1}^m{\frac{1}2(y_i-\hat{y}_i(w))^2}$$
+
+We start by approximating the gradient at a single point $$i$$ using SGD:  
 
 $$w^{n+1}_i = w^{n}_i - \eta \nabla J(w^n_i)$$
 
-As with the Perceptron, $\eta$ is the learning rate, $i$ is a training sample, and $n$ is a given iteration.  We can reshape this by taking the partial derivative of the loss function at a particular training sample $i$ with respect to $w^n_i$.
-$$ $$
-$$\nabla J(w^n_i)=\frac{\partial J(w^n_i)}{\partial w^n_i}$$ $$ $$
-$$=\frac{\partial }{\partial w^n_i} {\frac{1}2[y_i-\hat{y}^n_i(w^n_i)]^2} $$ $$ $$
-$$=2\frac{1}2 [y_i-\hat{y}^n_i(w^n_i)]\frac{\partial }{\partial w^n_i} [{-\hat{y}^n_i}(w^n_i)]$$ $$ $$
-$$=2\frac{1}2 [y_i-\hat{y}^n_i(w^n_i)]\frac{\partial }{\partial w^n_i} [{-w^n_i} x_{ij}]$$ $$ $$
-$$={-[y_i-\hat{y}^n_i(w^n_i)]}x_{ij}$$ $$ $$
+As with the Perceptron, $$\eta$$ is the learning rate, $$i$$ is a training sample, and $$n$$ is a given iteration.  We can reshape this by taking the partial derivative of the loss function at a particular training sample $$i$$ with respect to $$w^n_i$$.
 
+$$\nabla J(w^n_i)=\frac{\partial J(w^n_i)}{\partial w^n_i}$$
+
+$$=\frac{\partial }{\partial w^n_i} {\frac{1}2[y_i-\hat{y}^n_i(w^n_i)]^2} $$
+
+$$=2\frac{1}2 [y_i-\hat{y}^n_i(w^n_i)]\frac{\partial }{\partial w^n_i} [{-\hat{y}^n_i}(w^n_i)]$$
+
+$$=2\frac{1}2 [y_i-\hat{y}^n_i(w^n_i)]\frac{\partial }{\partial w^n_i} [{-w^n_i} x_{ij}]$$
+
+$$={-[y_i-\hat{y}^n_i(w^n_i)]}x_{ij}$$
 
 Now we can plug this back into the original SGD equation.
 
-$$w^{n+1}_i = w^n_i - \eta [{-[y_i-\hat{y}^n_i(w^n_i)]}x_{ij}] $$ $$ $$
-$$w^{n+1}_i = w^n_i + \eta [y_i-\hat{y}^n_i(w^n_i)]x_{ij} $$
+$$w^{n+1}_i = w^n_i - \eta [{-[y_i-\hat{y}^n_i(w^n_i)]}x_{ij}]$$
 
-If we plug in $n=1$ for the first iteration and $i=k$ for the $k^{th}$ training sample, then the form is identical to the Perceptron in the previous section.
+$$w^{n+1}_i = w^n_i + \eta [y_i-\hat{y}^n_i(w^n_i)]x_{ij}$$
+
+If we plug in $$n=1$$ for the first iteration and $$i=k$$ for the $$k^{th}$$ training sample, then the form is identical to the Perceptron in the previous section.
 
 $$w^2_k = w^1_k + \eta [y_1-\hat{y}^1_1]x_{1k}$$
 
 Depending on the loss function used, SGD can take on many other forms.  For additional details about SGD using other loss functions and variations, [here is a good resource](https://en.wikipedia.org/wiki/Stochastic_gradient_descent). 
 
-##Step-by-step Example
+## Step-by-step Example
 A good way to understand exactly how the Perceptron works is to walk through a simple example.  I'm going to use a [NAND gate](https://en.wikipedia.org/wiki/NAND_gate) model for my example, which has a very small linearly separable dataset.  Given the two features $x_1$ and $x_2$, here's what the outputs $y$ are for the NAND gate:
 
-|$x_1$|$x_2$|$y$|
+|$$x_1$$|$$x_2$$|$$y$$|
 |:---:|:---:|:---:|
 |0|0|1|
 |0|1|1|
 |1|0|1|
 |1|1|0|
 
-If I break the features and output into column vectors, here's what they look like: $$ $$ $$  x_{i1} = \begin{bmatrix} x_{11}\\x_{21}\\x_{31}\\x_{41} \end{bmatrix} = \begin{bmatrix} 0\\0\\1\\1 \end{bmatrix}$$ $$ $$
-$$x_{i2} = \begin{bmatrix} x_{12}\\x_{22}\\x_{32}\\x_{42} \end{bmatrix} = \begin{bmatrix} 0\\1\\0\\1 \end{bmatrix} $$ $$ $$
+If I break the features and output into column vectors, here's what they look like:
+$$  x_{i1} = \begin{bmatrix} x_{11}\\x_{21}\\x_{31}\\x_{41} \end{bmatrix} = \begin{bmatrix} 0\\0\\1\\1 \end{bmatrix}$$
+
+$$x_{i2} = \begin{bmatrix} x_{12}\\x_{22}\\x_{32}\\x_{42} \end{bmatrix} = \begin{bmatrix} 0\\1\\0\\1 \end{bmatrix} $$
+
 $$y_{i} = \begin{bmatrix} y_{1}\\y_{2}\\y_{3}\\y_{4} \end{bmatrix} = \begin{bmatrix} 1\\1\\1\\0 \end{bmatrix} $$
 
-I'm also going to introduce a dummy feature $x_{i0}$ of ones, which will be used to calculate the [bias](https://stats.stackexchange.com/questions/185911/why-are-bias-nodes-used-in-neural-networks) term in the model.  The bias is an additional term that allows for flexibility in fitting the model.  It allows all input features to be $0$, while still being able to fit the model. $$ $$ $$ x_{i0} = \begin{bmatrix} x_{10}\\x_{20}\\x_{30}\\x_{40} \end{bmatrix} = \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix} $$
+I'm also going to introduce a dummy feature $$x_{i0}$$ of ones, which will be used to calculate the [bias](https://stats.stackexchange.com/questions/185911/why-are-bias-nodes-used-in-neural-networks) term in the model.  The bias is an additional term that allows for flexibility in fitting the model.  It allows all input features to be $0$, while still being able to fit the model. $$ $$ $$ x_{i0} = \begin{bmatrix} x_{10}\\x_{20}\\x_{30}\\x_{40} \end{bmatrix} = \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix} $$
 
 Now I'm going to start working through the algorithm outlined above, step-by-step.
 
-1.  I'm going to start by initializing the weight vector $w^n_i$ to zeros.  $$w^1_i = \begin{bmatrix} w^1_0\\w^1_1\\w^1_2 \end{bmatrix} = \begin{bmatrix} 0\\0\\0 \end{bmatrix}$$ $$ $$
+1.  I'm going to start by initializing the weight vector $$w^n_i$$ to zeros.  $$w^1_i = \begin{bmatrix} w^1_0\\w^1_1\\w^1_2 \end{bmatrix} = \begin{bmatrix} 0\\0\\0 \end{bmatrix}$$ $$ $$
 I'm going to set the threshold $z=0$, the number of time steps to run the algorithm $t=50$, and the learning rate $\eta=0.1$.  Next I'm going to hop in to step 2. where the iterations begin.
 
 2.  Calculate the output at the first iteration $n=1$ for the first training sample $i=1$. $$ f = \sum_{j=0}^2 w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}$$  $$ f = (0\cdot1) + (0\cdot0) + (0\cdot 0) = 0$$
@@ -232,16 +251,7 @@ The weights are identical to those from the spreadsheet calculations.  Another u
     plt.title('Perceptron Convergence')
         
 
-
-
-
-    <matplotlib.text.Text at 0xa820198>
-
-
-
-
-![png](output_7_1.png)
-
+![png](/images/perceptron/output_7_1.png?raw=True)
 
 I can see from the results that by the fourth epoch the results have converged.  This is also consistent with the results from the spreadsheet.  
 
