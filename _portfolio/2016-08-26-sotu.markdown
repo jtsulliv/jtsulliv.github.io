@@ -1,0 +1,23 @@
+---
+title:  "Visualizing the State of the Union"
+date:   2016-08-26
+tags: [Politics]
+
+header:
+  image: "sotu_usa_today_edited.jpg"
+  caption: "Photo credit: [**USA Today**](http://www.usatoday.com/story/news/politics/onpolitics/2016/01/11/state-of-union-bipartisan-seating-stunt-fizzles/78624490/)"
+
+excerpt: "State of the Union, Visualization"
+---
+
+In the spirit of the U.S. presidential election (and me switching my voter registration from North Carolina to Washington, D.C.), I put together a wordcloud for every State of the Union address since I was born. While there are definitely better ways to visualize data, these wordclouds do a pretty good job of highlighting the key themes in the speeches.
+
+***
+
+![](/images/sotu_wordcloud_1993_2016.gif?raw=true)
+
+
+***
+
+For those interested, the Jupyter Notebook with code to scrape the speeches, clean the text, and make the wordclouds can be found in the [Github repository](https://github.com/beckernick/visualizations/tree/master/State_of_the_Union_Wordcloud) for this post. 
+
