@@ -52,9 +52,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : #"google" # false (default), "google", "google-universal", "custom"
+  provider               : # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : #"UA-85885869-1"
+    tracking_id          : 
 
 # Google AdSense
 google_ad_client         :
@@ -64,7 +64,7 @@ google_ad_slot           :
 # Site Author
 author:
   name             : "John Sullivan"
-  avatar           : #"bio-photo.jpg"
+  avatar           : "bio-photo.jpg"
   bio              : "Data Science Portfolio"
   location         : "Boston, MA"
   email            :
@@ -80,7 +80,7 @@ author:
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : #"nicholasebecker"
+  linkedin         : "jonathan-sullivan-b6761727"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
