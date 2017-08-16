@@ -2,11 +2,10 @@
 main:
   - title: "about"
     url: /about/
-    type: "left"
   - title: "data science"
     url: /datascience/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+  - title: "sample posts"
+    url: /sampleposts/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
