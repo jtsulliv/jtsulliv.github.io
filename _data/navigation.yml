@@ -2,7 +2,7 @@
 main:
   - title: "about"
     url: /about/
-	type: "left"
+    type: "left"
   - title: "data science"
     url: /datascience/
   # - title: "Sample Posts"
