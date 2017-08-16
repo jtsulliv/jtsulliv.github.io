@@ -18,9 +18,9 @@ teaser                   : # filename of teaser fallback teaser image placed in 
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", custom"
+  provider               : #"disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : #"beckernick-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -52,9 +52,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : # false (default), "google", "google-universal", "custom"
+  provider               : #"google" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : 
+    tracking_id          : #"UA-85885869-1"
 
 # Google AdSense
 google_ad_client         :
@@ -64,7 +64,7 @@ google_ad_slot           :
 # Site Author
 author:
   name             : "John Sullivan"
-  avatar           : "bio-photo.jpg"
+  avatar           : #"bio-photo.jpg"
   bio              : "Data Science Portfolio"
   location         : "Boston, MA"
   email            :
@@ -80,7 +80,7 @@ author:
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : "jonathan-sullivan-b6761727"
+  linkedin         : #"nicholasebecker"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
