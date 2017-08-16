@@ -24,6 +24,34 @@ $(document).ready(function(){
 
   // FitVids init
   $("#main").fitVids();
+  
+    // init sticky sidebar 
+29   $(".sticky").Stickyfill(); 
+30 
+31   var stickySideBar = function(){ 
+32     var show = $(".author__urls-wrapper button").length === 0 ? $(window).width() > 1024 : !$(".author__urls-wrapper button").is(":visible"); 
+33     // console.log("has button: " + $(".author__urls-wrapper button").length === 0); 
+34     // console.log("Window Width: " + windowWidth); 
+35     // console.log("show: " + show); 
+36     //old code was if($(window).width() > 1024) 
+37     if (show) { 
+38       // fix 
+39       Stickyfill.rebuild(); 
+40       Stickyfill.init(); 
+41       $(".author__urls").show(); 
+42     } else { 
+43       // unfix 
+44       Stickyfill.stop(); 
+45       $(".author__urls").hide(); 
+46     } 
+47   }; 
+48 
+49   stickySideBar(); 
+50 
+51   $(window).resize(function(){ 
+52     stickySideBar(); 
+53   }); 
+
 
   // Follow menu drop down
   $(".author__urls-wrapper button").on("click", function() {
