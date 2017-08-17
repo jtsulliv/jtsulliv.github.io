@@ -136,7 +136,8 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
 2.  Calculate the output at the first iteration $$n=1$$ for the first training sample $$i=1$$. 
 
     $$ f = \sum_{j=0}^2 w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}$$  
-	$$ f = (0\cdot1) + (0\cdot0) + (0\cdot 0) = 0$$
+    
+	  $$ f = (0\cdot1) + (0\cdot0) + (0\cdot 0) = 0$$
 
     Now I'll make the actual prediction using my activation function.
 	
