@@ -32,11 +32,13 @@ The Perceptron is pretty straightforward.  Here's the basics:
 2.  Calculate the output at the first iteration $$n=1$$ for the first training sample $$i=1$$ for the $$k$$ features:
 
 	  $$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
-
-    $$ \mathbf{z}) =\begin{cases}
-      1 & \text{if }\mathbf{z} \ge \theta\\
-      -1 & \text{otherwise}.
-      \end{cases} $$
+       
+    $$ f(n) =
+       \begin{cases}
+       n/2,  & \text{if $n$ is even} \\
+       3n+1, & \text{if $n$ is odd}
+       \end{cases} $$
+    
 	  
 3.  Update the $$k$$ weights  
 
