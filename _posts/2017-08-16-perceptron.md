@@ -60,9 +60,9 @@ It should be noted that this isn't exactly identical to Rosenblatt's original Pe
 
    $$
    \begin{displaymath}
-	   sgn(f) =\begin{cases}
-		  1 & \text{if }f \gt 0\\
-		  -1 & \text{if }f \lt 0.
+sgn(f) =\begin{cases}
+		 1 & \text{if }f \gt 0\\
+		 -1 & \text{if }f \lt 0.
 		 \end{cases}
    \end{displaymath}
    $$
