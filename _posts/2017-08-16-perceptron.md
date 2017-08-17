@@ -57,15 +57,15 @@ The Perceptron is pretty straightforward.  Here's the basics:
 4.  Increment the time-step to $$n=n+1$$.  If the final time-step $$t$$ hasn't been reached, go back to step 2., repeating the process for the next training sample $$i$$.  
 
 It should be noted that this isn't exactly identical to Rosenblatt's original Perceptron, which used the $$signum function$$ for activation.
-   
-  $$
+
+   $$
    \begin{displaymath}
-	  sgn(f) =\begin{cases}
-		1 & \text{if }f \gt 0\\
-		-1 & \text{if }f \lt 0.
-		\end{cases}
+	   sgn(f) =\begin{cases}
+		  1 & \text{if }f \gt 0\\
+		  -1 & \text{if }f \lt 0.
+		 \end{cases}
    \end{displaymath}
-  $$
+   $$
 
 The form we'll be implementing allows us some flexibility in choosing a threshold for our activation function.  It also allows us to implement $$1$$ and $$0$$ for the outputs, which is typical for binary classification.
 
