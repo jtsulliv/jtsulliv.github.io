@@ -33,8 +33,11 @@ The Perceptron is pretty straightforward.  Here's the basics:
 
 	  $$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
 
-	  $$\hat{y}^1_1 =\begin{cases}1 & \text{if }f \gt z\\0 & \text{otherwise}.\end{cases}$$
- 
+    $$ \mathbf{z}) =\begin{cases}
+      1 & \text{if }\mathbf{z} \ge \theta\\
+      -1 & \text{otherwise}.
+      \end{cases} $$
+	  
 3.  Update the $$k$$ weights  
 
 	  $$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
