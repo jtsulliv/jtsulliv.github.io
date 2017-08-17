@@ -136,9 +136,21 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
 2.  Calculate the output at the first iteration $$n=1$$ for the first training sample $$i=1$$.
 
     $$ f = \sum_{j=0}^2 w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}$$  
-	$$ f = (0\cdot1) + (0\cdot0) + (0\cdot 0) = 0$$
+	$$ f = (0\cdot1) + (0\ining samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
 
-    Now I'll make the actual prediction using my activation function.
+$$ w^n_i = \begin{bmatrix} w^n_0\\w^n_1\\w^n_2 \end{bmatrix} = \begin{bmatrix} 0.2\\-0.2\\-0.1 \end{bmatrix} $$
+
+## Python Implementation from Scratch
+
+In this section I'm going to implement the NAND model in Python.  This makes the Perceptron accessible to larger more complex datasets that a spreadsheet may not be able to handle.
+
+I'm going to be taking advantage of the [Numpy](http://www.numpy.org/) library to simplify some of the math operations, and the [Matplotlib](https://matplotlib.org/) library for plotting.
+
+```python
+    import numpy as np
+    import matplotlib.pyplot as plt
+```
+Now I'll make the actual prediction using my activation function.
 
    $$
 	\begin{displaymath}
@@ -160,22 +172,7 @@ $$ w^2_i = \begin{bmatrix}0.1\\0\\0\end{bmatrix}$$
 
 4.  Increment the time step to $$n=n+1$$, therefore $$n=2$$.  Since the time step is not equal to $$50$$, I jump back to step 2. and keep going.
 
-Since there are four training samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
-
-$$ w^n_i = \begin{bmatrix} w^n_0\\w^n_1\\w^n_2 \end{bmatrix} = \begin{bmatrix} 0.2\\-0.2\\-0.1 \end{bmatrix} $$
-
-## Python Implementation from Scratch
-
-In this section I'm going to implement the NAND model in Python.  This makes the Perceptron accessible to larger more complex datasets that a spreadsheet may not be able to handle.
-
-I'm going to be taking advantage of the [Numpy](http://www.numpy.org/) library to simplify some of the math operations, and the [Matplotlib](https://matplotlib.org/) library for plotting.
-
-```python
-    import numpy as np
-    import matplotlib.pyplot as plt
-```
-<<<<<<< HEAD
-=======
+Since there are four tra
 
 >>>>>>> c7b35868981ee178345987f46c2bb9695aa4f2aa
 Next I'll enter in my feature data and the outputs.
