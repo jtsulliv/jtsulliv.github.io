@@ -34,12 +34,12 @@ The Perceptron is pretty straightforward.  Here's the basics:
 	$$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
 
   $$
-   \begin{displaymath}
+  \begin{displaymath}
 	 \hat{y}^1_1 =\begin{cases}
 	 1 & \text{if }f \gt z\\
 	 0 & \text{otherwise}.
    \end{cases}$$
-   \end{displaymath}
+  \end{displaymath}
   $$
 	
  
@@ -61,7 +61,7 @@ It should be noted that this isn't exactly identical to Rosenblatt's original Pe
    
   $$
    \begin{displaymath}
-	sgn(f) =\begin{cases}
+	  sgn(f) =\begin{cases}
 		1 & \text{if }f \gt 0\\
 		-1 & \text{if }f \lt 0.
 		\end{cases}
