@@ -14,15 +14,15 @@ The single-layer [Perceptron](https://en.wikipedia.org/wiki/Perceptron) is the s
 
 The Perceptron is a linear classifier used for binary predictions.  This means that in order for it to work, the data must be [linearly separable](https://en.wikipedia.org/wiki/Linear_separability).
 
+![png](/images/perceptron/linsep_new.png?raw=True)
+
 Although the Perceptron is only applicable to linearly separable data, the more detailed [Multilayered Perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron) can be applied to more complicated nonlinear datasets.  This includes applications in areas such as speech recognition, image processing, and financial predictions just to name a few.
 
-![png](/images/perceptron/linsep_2.png?raw=True)
 ## How It Works
 
 The perceptron works by "learning" a series of weights, corresponding to the input features.  These input features are vectors of the available data.  For example, if we were trying to classify whether an animal is a cat or dog, $$x_1$$ might be weight, $$x_2$$ might be height, and $$x_3$$ might be length.  Each pair of weights and input features is multiplied together, and then the results are summed.  If the summation is above a certain threshold, we predict one class, otherwise the prediction belongs to a different class.  For example, we could set the threshold at 0.  If the summation is greater than 0, the prediction is a 1 (dog), otherwise it's a 0 (cat).  
 
 The final step is to check if our predictions were classified correctly.  If they were not, then the weights are updated using a learning rate.  This process continues for a certain number of iterations, known as "epochs."  The goal is to determine the weights that produce a linear decision boundary that correctly classifies the predictions.
-
 
 ## Perceptron Algorithm
 The Perceptron is pretty straightforward.  Here's the basics:
@@ -39,7 +39,7 @@ $$
 		0 & \text{otherwise}.
 		\end{cases}
 $$
-  
+{:start="3"}  
 3.  Update the $$k$$ weights  
 
 $$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
@@ -51,7 +51,7 @@ $$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$
 $$ \vdots $$
 
 $$ w^2_k = w^1_k + \eta [y_1-\hat{y}^1_1]x_{1k} $$ 
-
+{:start="4"}
 4.  Increment the time-step to $$n=n+1$$.  If the final time-step $$t$$ hasn't been reached, go back to step 2., repeating the process for the next training sample $$i$$.  
 
 It should be noted that this isn't exactly identical to Rosenblatt's original Perceptron, which used the $$signum function$$ for activation.
