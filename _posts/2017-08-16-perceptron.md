@@ -213,7 +213,7 @@ Here is the full implementation of the perceptron function, where $$z$$ is the t
         yhat_vec = np.ones(len(y))     # vector for predictions
         errors = np.ones(len(y))       # vector for errors (actual - predictions)
         J = []                         # vector for the SSE cost function
-
+ 
         while n < t:                                  
             for i in xrange(0, len(x)):                 
 
