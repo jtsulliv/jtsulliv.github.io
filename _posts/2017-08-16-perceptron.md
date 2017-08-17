@@ -37,7 +37,8 @@ The Perceptron is pretty straightforward.  Here's the basics:
        \begin{cases}
        n/2,  & \text{if $n$ is even} \\
        3n+1, & \text{if $n$ is odd}
-       \end{cases} $$
+       \end{cases} 
+    $$
     
 	  
 3.  Update the $$k$$ weights  
