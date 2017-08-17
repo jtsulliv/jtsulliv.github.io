@@ -31,29 +31,28 @@ The Perceptron is pretty straightforward.  Here's the basics:
 
 2.  Calculate the output at the first iteration $$n=1$$ for the first training sample $$i=1$$ for the $$k$$ features:
 
-	$$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
+	  $$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
 
-  $$
-  \begin{displaymath}
+   $$
+   \begin{displaymath}
 	 \hat{y}^1_1 =\begin{cases}
 	 1 & \text{if }f \gt z\\
 	 0 & \text{otherwise}.
    \end{cases}$$
-  \end{displaymath}
-  $$
-	
- 
+   \end{displaymath}
+   $$
+	 
 3.  Update the $$k$$ weights  
 
-	$$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
+	  $$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
 
-	$$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$ 
+	  $$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$ 
 
-	$$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  
+	  $$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  
 
-	$$ \vdots $$
+	  $$ \vdots $$
 
-	$$ w^2_k = w^1_k + \eta [y_1-\hat{y}^1_1]x_{1k} $$ 
+	  $$ w^2_k = w^1_k + \eta [y_1-\hat{y}^1_1]x_{1k} $$ 
 
 4.  Increment the time-step to $$n=n+1$$.  If the final time-step $$t$$ hasn't been reached, go back to step 2., repeating the process for the next training sample $$i$$.  
 
