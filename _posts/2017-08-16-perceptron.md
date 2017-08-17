@@ -20,7 +20,7 @@ Although the Perceptron is only applicable to linearly separable data, the more 
 
 ## How It Works
 
-The perceptron works by "learning" a series of weights, corresponding to the input features.  These input features are vectors of the available data.  For example, if we were trying to classify whether an animal is a cat or dog, $$x_1$$ might be weight, $$x_2$$ might be height, and $$x_3$$ might be length.  Each pair of weights and input features is multiplied together, and then the results are summed.  If the summation is above a certain threshold, we predict one class, otherwise the prediction belongs to a different class.  For example, we could set the threshold at 0.  If the summation is greater than 0, the prediction is a 1 (dog), otherwise it's a 0 (cat).  
+The perceptron works by "learning" a series of weights, corresponding to the input features.  These input features are vectors of the available data.  For example, if we were trying to classify whether an animal is a cat or dog, $$x_1$$ might be weight, $$x_2$$ might be height, and $$x_3$$ might be length.  Each pair of weights and input features is multiplied together, and then the results are summed.  If the summation is above a certain threshold, we predict one class, otherwise the prediction belongs to a different class.  For example, we could set the threshold at $$0$$.  If the summation is greater than $$0$$, the prediction is a $$1$$ (dog), otherwise it's a $$0$$ (cat).  
 
 The final step is to check if our predictions were classified correctly.  If they were not, then the weights are updated using a learning rate.  This process continues for a certain number of iterations, known as "epochs."  The goal is to determine the weights that produce a linear decision boundary that correctly classifies the predictions.
 
@@ -33,9 +33,15 @@ The Perceptron is pretty straightforward.  Here's the basics:
 
 	$$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
 
-	<div>
-	$$\hat{y}^1_1 =\begin{cases}1 & \text{if }f \gt z\\0 & \text{otherwise}.\end{cases}$$
-	</div>
+   $$
+   \begin{displaymath}
+	\hat{y}^1_1 =\begin{cases}
+	 1 & \text{if }f \gt z\\
+	 0 & \text{otherwise}.
+    \end{cases}$$
+   \end{displaymath}
+   $$
+	
  
 3.  Update the $$k$$ weights  
 
@@ -98,7 +104,7 @@ $$w^2_k = w^1_k + \eta [y_1-\hat{y}^1_1]x_{1k}$$
 Depending on the loss function used, SGD can take on many other forms.  For additional details about SGD using other loss functions and variations, [here is a good resource](https://en.wikipedia.org/wiki/Stochastic_gradient_descent). 
 
 ## Step-by-step Example
-A good way to understand exactly how the Perceptron works is to walk through a simple example.  I'm going to use a [NAND gate](https://en.wikipedia.org/wiki/NAND_gate) model for my example, which has a very small linearly separable dataset.  Given the two features $x_1$ and $x_2$, here's what the outputs $y$ are for the NAND gate:
+A good way to understand exactly how the Perceptron works is to walk through a simple example.  I'm going to use a [NAND gate](https://en.wikipedia.org/wiki/NAND_gate) model for my example, which has a very small linearly separable dataset.  Given the two features $$x_1$$ and $$x_2$$, here's what the outputs $$y$$ are for the NAND gate:
 
 |$$x_1$$|$$x_2$$|$$y$$|
 |:---:|:---:|:---:|
@@ -108,50 +114,66 @@ A good way to understand exactly how the Perceptron works is to walk through a s
 |1|1|0|
 
 If I break the features and output into column vectors, here's what they look like:
+
 $$  x_{i1} = \begin{bmatrix} x_{11}\\x_{21}\\x_{31}\\x_{41} \end{bmatrix} = \begin{bmatrix} 0\\0\\1\\1 \end{bmatrix}$$
 
 $$x_{i2} = \begin{bmatrix} x_{12}\\x_{22}\\x_{32}\\x_{42} \end{bmatrix} = \begin{bmatrix} 0\\1\\0\\1 \end{bmatrix} $$
 
 $$y_{i} = \begin{bmatrix} y_{1}\\y_{2}\\y_{3}\\y_{4} \end{bmatrix} = \begin{bmatrix} 1\\1\\1\\0 \end{bmatrix} $$
 
-I'm also going to introduce a dummy feature $$x_{i0}$$ of ones, which will be used to calculate the [bias](https://stats.stackexchange.com/questions/185911/why-are-bias-nodes-used-in-neural-networks) term in the model.  The bias is an additional term that allows for flexibility in fitting the model.  It allows all input features to be $0$, while still being able to fit the model. $$ $$ $$ x_{i0} = \begin{bmatrix} x_{10}\\x_{20}\\x_{30}\\x_{40} \end{bmatrix} = \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix} $$
+I'm also going to introduce a dummy feature $$x_{i0}$$ of ones, which will be used to calculate the [bias](https://stats.stackexchange.com/questions/185911/why-are-bias-nodes-used-in-neural-networks) term in the model.  The bias is an additional term that allows for flexibility in fitting the model.  It allows all input features to be $$0$$, while still being able to fit the model.
+
+$$ x_{i0} = \begin{bmatrix} x_{10}\\x_{20}\\x_{30}\\x_{40} \end{bmatrix} = \begin{bmatrix} 1\\1\\1\\1 \end{bmatrix} $$
 
 Now I'm going to start working through the algorithm outlined above, step-by-step.
 
-1.  I'm going to start by initializing the weight vector $$w^n_i$$ to zeros.  $$w^1_i = \begin{bmatrix} w^1_0\\w^1_1\\w^1_2 \end{bmatrix} = \begin{bmatrix} 0\\0\\0 \end{bmatrix}$$ $$ $$
-I'm going to set the threshold $z=0$, the number of time steps to run the algorithm $t=50$, and the learning rate $\eta=0.1$.  Next I'm going to hop in to step 2. where the iterations begin.
+1.  I'm going to start by initializing the weight vector $$w^n_i$$ to zeros.  
 
-2.  Calculate the output at the first iteration $n=1$ for the first training sample $i=1$. $$ f = \sum_{j=0}^2 w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}$$  $$ f = (0\cdot1) + (0\cdot0) + (0\cdot 0) = 0$$
+    $$w^1_i = \begin{bmatrix} w^1_0\\w^1_1\\w^1_2 \end{bmatrix} = \begin{bmatrix} 0\\0\\0 \end{bmatrix}$$
+
+    I'm going to set the threshold $$z=0$$, the number of time steps to run the algorithm $$t=50$$, and the learning rate $$\eta=0.1$$.  Next I'm going to hop in to step 2. where the iterations begin.
+
+2.  Calculate the output at the first iteration $$n=1$$ for the first training sample $$i=1$$. 
+
+    $$ f = \sum_{j=0}^2 w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}$$  
+	$$ f = (0\cdot1) + (0\cdot0) + (0\cdot 0) = 0$$
 
     Now I'll make the actual prediction using my activation function.
-$$\hat{y}^1_1 =\begin{cases}
-    1 & \text{if }f \gt z\\
-    0 & \text{otherwise}.
-  \end{cases} $$
-  $$\hat{y}^1_1=0$$
+	
+   $$
+	\begin{displaymath}
+	 \hat{y}^1_1 =\begin{cases}
+     1 & \text{if }f \gt z\\
+     0 & \text{otherwise}.
+     \end{cases} $$
+	\end{displaymath}
+   $$
+	
+    $$\hat{y}^1_1=0$$
+  
 3.  Update the weights  
-$$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10} $$ $$ = 0 + 0.1[1-0]1 $$ $$= 0.1$$ $$ $$ 
-$$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$  $$ = 0 + 0.1[1-0]0 $$ $$= 0$$ $$ $$
-$$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  $$ = 0 + 0.1[1-0]0 $$ $$= 0$$ $$ $$
+
+$$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10} $$ $$ = 0 + 0.1[1-0]1 $$ $$= 0.1$$ 
+$$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$  $$ = 0 + 0.1[1-0]0 $$ $$= 0$$ 
+$$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  $$ = 0 + 0.1[1-0]0 $$ $$= 0$$ 
 $$ w^2_i = \begin{bmatrix}0.1\\0\\0\end{bmatrix}$$
-4.  Increment the time step to $n=n+1$, therefore $n=2$.  Since the time step is not equal to 50, I jump back to step 2. and keep going.
 
-Since there are four training samples, after going through four iterations I can evalualte the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:$$ $$  $$ w^n_i = \begin{bmatrix} w^n_0\\w^n_1\\w^n_2 \end{bmatrix} = \begin{bmatrix} 0.2\\-0.2\\-0.1 \end{bmatrix} $$
+4.  Increment the time step to $$n=n+1$$, therefore $$n=2$$.  Since the time step is not equal to $$50$$, I jump back to step 2. and keep going.
 
-##Python Implementation from Scratch
+Since there are four training samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
+
+$$ w^n_i = \begin{bmatrix} w^n_0\\w^n_1\\w^n_2 \end{bmatrix} = \begin{bmatrix} 0.2\\-0.2\\-0.1 \end{bmatrix} $$
+
+## Python Implementation from Scratch
 
 In this section I'm going to implement the NAND model in Python.  This makes the Perceptron accessible to larger more complex datasets that a spreadsheet may not be able to handle.
 
 I'm going to be taking advantage of the [Numpy](http://www.numpy.org/) library to simplify some of the math operations, and the [Matplotlib](https://matplotlib.org/) library for plotting.
 
-
-
-
     import numpy as np
     import matplotlib.pyplot as plt
 
 Next I'll enter in my feature data and the outputs.
-
 
     # NAND gate features
     # note: x0 is a dummy variable for the bias term
@@ -161,15 +183,13 @@ Next I'll enter in my feature data and the outputs.
          [1., 1., 0.],                                  
          [1., 1., 1.]] 
     
-    
     # Desired outputs
     y = [1.,                                            
          1.,                                            
          1.,                                            
          0.] 
 
-Here is the full implementation of the perceptron function, where $z$ is the threshold, $eta$ is the learning rate, and $t$ is the number of iterations.
-
+Here is the full implementation of the perceptron function, where $$z$$ is the threshold, $$eta$$ is the learning rate, and $$t$$ is the number of iterations.
 
     # Training the Perceptron
     #
@@ -190,7 +210,6 @@ Here is the full implementation of the perceptron function, where $z$ is the thr
         errors = np.ones(len(y))       # vector for errors (actual - predictions)
         J = []                         # vector for the SSE cost function
          
-            
         while n < t:                                  
             for i in xrange(0, len(x)):                 
                 
@@ -210,7 +229,6 @@ Here is the full implementation of the perceptron function, where $z$ is the thr
                     
                 n += 1     
     
-            
             # computing the sum-of-squared errors
             for i in xrange(0,len(y)):     
                errors[i] = (y[i]-yhat_vec[i])**2
@@ -218,7 +236,6 @@ Here is the full implementation of the perceptron function, where $z$ is the thr
                
         # function returns the weight vector, and sum-of-squared errors        
         return w, J
-    
     
     z = 0.0     # threshold
     eta = 0.1   # learning rate
@@ -236,9 +253,7 @@ Here is the full implementation of the perceptron function, where $z$ is the thr
     The sum-of-squared erros are:
     [1.0, 1.5, 1.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     
-
 The weights are identical to those from the spreadsheet calculations.  Another useful tool is to plot the error as a function of the epochs.
-
 
     J = perceptron_train(x, y, z, eta, t)[1]     # pulling out the sum-of-squared errors from the tuple
     epoch = np.linspace(1,len(J),len(J))
@@ -248,23 +263,13 @@ The weights are identical to those from the spreadsheet calculations.  Another u
     plt.xlabel('Epoch')
     plt.ylabel('Sum-of-Squared Error')
     plt.title('Perceptron Convergence')
-        
 
 
-
-
-    <matplotlib.text.Text at 0xa820198>
-
-
-
-
-![png](output_7_1.png)
-
+![png](/images/perceptron/output_7_1.png?raw=True)
 
 I can see from the results that by the fourth epoch the results have converged.  This is also consistent with the results from the spreadsheet.  
 
-I set the threshold and weights arbitrarily, so these are things that I can investigate.  If I change the learning rate, say to 0.5, the weights and number of epochs to convergence change.
-
+I set the threshold and weights arbitrarily, so these are things that I can investigate.  If I change the learning rate, say to $$0.5$$, the weights and number of epochs to convergence change.
 
     eta = 0.5     # new learning rate
     z = 0.0
@@ -288,23 +293,11 @@ I set the threshold and weights arbitrarily, so these are things that I can inve
     
     The sum-of-squared erros are:
     [1.0, 1.5, 1.5, 1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-    
+  
+![png](/images/perceptron/output_9_2.png?raw=True)
 
+I can also investigate the threshold.  Here is what the results look like using the original learning rate of $$0.1$$, and changing the threshold to $$0.5$$.
 
-
-
-    <matplotlib.text.Text at 0x16827e10>
-
-
-
-
-![png](output_9_2.png)
-
-
-I can also investigate the threshold.  Here is what the results look like using the original learning rate of 0.1, and changing the threshold to 0.5.
-
-
-'''python
     eta = 0.1     
     z = 0.5     # new threshold
     
@@ -327,24 +320,21 @@ I can also investigate the threshold.  Here is what the results look like using 
     
     The sum-of-squared erros are:
     [1.5, 1.5, 1.5, 1.0, 1.5, 1.5, 1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0]
-'''
 
+![png](/images/perceptron/output_11_2.png?raw=True)
 
-![png](output_11_2.png)
-
-
-This model performed slightly worse than the previous two, so maybe I don't want to use these paramaters.  
+This model performed slightly worse than the previous two, so maybe I don't want to use these parameters.  
 
 It's important to keep in mind that I'm only using a training set in this example.  I haven't actually made predictions on a test set hidden from the model.  Training and making predictions on the same dataset isn't a good idea, as it can lead to overfitting.  In the next section I'll work through another example where I split the data into a training set and a test set.
 
-##A More Detailed Example
+## A More Detailed Example
 
 In this section I'm going to use a larger data set to train/test my Perceptron.  I'll also compare my results with an implementation from [scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html) as a validation of my model.  
 
-###Synthetic Dataset
+### Synthetic Dataset
+
 In order to test my Perceptron for comparison with the scikit-learn implementation, I'm going to first create a dataset.  Since I'll be plotting the intercept, I'm going to put in a dummy feature in the first column, which will be ones.  This way the model will learn the weights for the features, as well as the bias term for the intercept.
 
-'''python
     import numpy as np
     import matplotlib.pyplot as plt 
     %matplotlib inline
@@ -378,29 +368,23 @@ In order to test my Perceptron for comparison with the scikit-learn implementati
     
     # scatter plot to visualize the two classes (red=1, blue=0)
     plt.scatter(features[:,1], features[:,2], c = labels)
-'''
 
-
-![png](output_15_1.png)
-
+![png](/images/perceptron/output_15_1.png?raw=True)
 
 ### Splitting the Dataset 
 I didn't split the data in the NAND example into training and test sets because I was just illustrating a simple example of the Perceptron algorithm.  In this example I'm going to randomly sample 70% of the dataset for the training set, and predictions will be made on the remaining 30%.  Splitting the dataset into training and test sets is good practice to try and avoid overfitting.
 
-'''python
     # shuffling the data to make the sampling random
     np.random.shuffle(dataset)
     
     # splitting the data into train/test sets
     train = dataset[0:(0.7*(obs*2))]
     test = dataset[(0.7*(obs*2)):(obs*2)]
-'''
 	
 ### Training the Model
 
 The next step is to train the model to determine the weights.
 
-'''python
     # Training the Perceptron
     #
     # Inputs
@@ -417,7 +401,6 @@ The next step is to train the model to determine the weights.
     x_test = test[:,0:3]
     y_test = test[:,3]
   
-    
     def perceptron_train(x, y, z, eta, t):
         
         # Initializing parameters for the Perceptron
@@ -429,7 +412,6 @@ The next step is to train the model to determine the weights.
         errors = np.ones(len(y))       # vector for errors (actual - predictions)
         J = []                         # vector for the SSE cost function
          
-            
         while n < t:                             
             for i in xrange(0, len(x)):                 
                 
@@ -476,11 +458,9 @@ The next step is to train the model to determine the weights.
     [-0.7        -0.43283606  0.42203522]
     The sum-of-squared errors are:
     [5.5, 0.0, 0.0, 0.0, 0.0]
-'''
 
 A plot of the model's convergence is also useful.
 
-'''python
     # plotting SSE as a function of epoch
     J = perceptron_train(x_train, y_train, z, eta, t)[1]
     epoch = np.linspace(1,len(J),len(J))
@@ -490,20 +470,15 @@ A plot of the model's convergence is also useful.
     plt.xlabel('Epoch')
     plt.ylabel('Sum-of-Squared Error')
     plt.title('Perceptron Convergence')
-'''
 
+![png](/images/perceptron/output_21_1.png?raw=True)
 
-![png](output_21_1.png)
-
-'''python
-###Testing the Model
+### Testing the Model
 Next, we'll be testing the model.  
-
 
     from sklearn.metrics import accuracy_score
     
     w = perceptron_train(x_train, y_train, z, eta, t)[0]
-    
     
     def perceptron_test(x, w, z, eta, t):
         y_pred = []
@@ -522,13 +497,10 @@ Next, we'll be testing the model.
     
     print accuracy_score(y_test, y_pred)
     
-
-    1.0
-'''   
+    1.0 
 
 We can see that the model performed perfectly.  Since this is a pretty simple, linearly separable dataset, this isn't surprising.  Lets take a look at what the decision boundary looks like for this model.
 
-'''python
     # plot the decision boundary
     # 0 = w0x0 + w1x1 + w2x2
     # x2 = (-w0x0-w1x1)/w2
@@ -551,11 +523,8 @@ We can see that the model performed perfectly.  Since this is a pretty simple, l
     
     plt.scatter(features[:,1], features[:,2], c = labels)
     plt.plot(x1, x_2)
-'''
 
-
-![png](output_25_1.png)
-
+![png](/images/perceptron/output_25_1.png?raw=True)
 
 The plot of the decision boundary confirms that the model has clearly separated the two classes.
 
@@ -563,7 +532,6 @@ The plot of the decision boundary confirms that the model has clearly separated 
 
 Based on the decision boundary, it looks like the model is working.  Another good check is to verify it with a trusted implementation from [scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html).  To compare the models, I'll take a look at the weights for each model.
 
-'''python
     from sklearn.linear_model import Perceptron
     
     # training the sklearn Perceptron
@@ -581,7 +549,6 @@ Based on the decision boundary, it looks like the model is working.  Another goo
     [-0.7        -0.43283606  0.42203522]
     my perceptron weights:
     [-0.7        -0.43283606  0.42203522]
-'''
 
 The scikit-learn implementation yielded identical weights to my model.  This isn't surprising given the clear separability of the two datasets.  
 
