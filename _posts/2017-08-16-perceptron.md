@@ -174,6 +174,10 @@ I'm going to be taking advantage of the [Numpy](http://www.numpy.org/) library t
     import numpy as np
     import matplotlib.pyplot as plt
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> c7b35868981ee178345987f46c2bb9695aa4f2aa
 Next I'll enter in my feature data and the outputs.
 
 ```python
