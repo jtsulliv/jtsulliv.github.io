@@ -170,8 +170,10 @@ In this section I'm going to implement the NAND model in Python.  This makes the
 
 I'm going to be taking advantage of the [Numpy](http://www.numpy.org/) library to simplify some of the math operations, and the [Matplotlib](https://matplotlib.org/) library for plotting.
 
+```python
     import numpy as np
     import matplotlib.pyplot as plt
+```
 
 Next I'll enter in my feature data and the outputs.
 
