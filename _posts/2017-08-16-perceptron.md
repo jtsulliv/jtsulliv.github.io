@@ -4,7 +4,7 @@ date:   2017-08-16
 tags: [neural networks, machine learning, mathematics]
 
 header:
-  image: "perceptron/perceptron_new.png"
+  image: "perceptron/perceptron_2.png"
   
 
 excerpt: "Neural Networks, Stochastic Gradient Descent"
@@ -16,7 +16,7 @@ The Perceptron is a linear classifier used for binary predictions.  This means t
 
 Although the Perceptron is only applicable to linearly separable data, the more detailed [Multilayered Perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron) can be applied to more complicated nonlinear datasets.  This includes applications in areas such as speech recognition, image processing, and financial predictions just to name a few.
 
-![png](/images/perceptron/linsep_new.png?raw=True)
+![png](/images/perceptron/linsep_2.png?raw=True)
 ## How It Works
 
 The perceptron works by "learning" a series of weights, corresponding to the input features.  These input features are vectors of the available data.  For example, if we were trying to classify whether an animal is a cat or dog, $$x_1$$ might be weight, $$x_2$$ might be height, and $$x_3$$ might be length.  Each pair of weights and input features is multiplied together, and then the results are summed.  If the summation is above a certain threshold, we predict one class, otherwise the prediction belongs to a different class.  For example, we could set the threshold at 0.  If the summation is greater than 0, the prediction is a 1 (dog), otherwise it's a 0 (cat).  
