@@ -35,7 +35,7 @@ The Perceptron is pretty straightforward.  Here's the basics:
 
   \begin{align}
 	\hat{y}^1_1 &=\begin{cases}
-	1 & \text{if }f \gt z\\
+	1 & \text{if }f \gt z\
 	0 & \text{otherwise}.
   \end{cases}
   \end{align}
