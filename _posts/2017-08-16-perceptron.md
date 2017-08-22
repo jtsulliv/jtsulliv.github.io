@@ -171,7 +171,7 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
 	
 4.  Increment the time step to $$ n = n + 1 $$, therefore $$ n = 2 $$.  Since the time step is not equal to 50, I jump back to step 2. and keep going.
 
-Since there are four training samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
+Since there are four training samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand [here](https://github.com/jtsulliv/ML-from-scratch/tree/master/Neural-Networks).  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
 
 $$ w^n_i = \begin{bmatrix} w^n_0\\w^n_1\\w^n_2 \end{bmatrix} = \begin{bmatrix} 0.2\\-0.2\\-0.1 \end{bmatrix} $$
 
