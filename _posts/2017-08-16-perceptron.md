@@ -33,12 +33,12 @@ The Perceptron is pretty straightforward.  Here's the basics:
 
 	$$ f = \sum_{j=0}^k w^1_j x_{1j} = w^1_0 x_{10}+w^1_1 x_{11}+w^1_2 x_{12}+...+ w^1_k x_{1k} $$  
 
-  \begin{align}
-	\hat{y}^1_1 &=\begin{cases}
-	1 & \text{if }f \gt z\\\
-	0 & \text{otherwise}.
-  \end{cases}
-  \end{align}
+\begin{align}
+\hat{y}^1_1 &=\begin{cases}
+1 & \text{if }f \gt z\\\
+0 & \text{otherwise}.
+\end{cases}
+\end{align}
    
 3.  Update the $$k$$ weights  
 
@@ -135,8 +135,41 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
 	  $$ f = (0\cdot1) + (0\cdot 0) + (0\cdot 0) = 0$$
     
     Now I'll make the actual prediction using my activation function.
-    
-    ining samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
+	
+\begin{align}
+\hat{y}^1_1 &=\begin{cases}
+1 & \text{if }f \gt z\\\
+0 & \text{otherwise}.
+\end{cases}
+\end{align}
+
+$$ \hat{y}^1_1 = 0 $$
+
+3.  Update the weights
+
+	$$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
+	
+	$$ = 0 +0.1[1-0]1 $$
+	
+	$$ = 0.1 $$
+
+	$$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$
+	
+	$$ = 0 +0.1[1-0]0 $$
+	
+	$$ = 0 $$
+
+	$$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  
+	
+	$$ = 0 +0.1[1-0]0 $$
+	
+	$$ = 0 $$
+	
+	$$ w^2_i = \begin{bmatrix} 0.1\\0\\0 \end{bmatrix} $$
+	
+4.  Increment the time step to $$ n = n + 1 $$, therefore $$ n = 2 $$.  Since the time step is not equal to 50, I jump back to step 2. and keep going.
+
+Since there are four training samples, after going through four iterations I can evaluate the SSE loss function to see if the model has converged.  Looping through all of the training samples is also known as an "epoch."  Since my dataset has four training samples, there's four iterations in one epoch.  I won't write out all of the iterations, but you can find a spreadsheet where I did this by hand here *github link*.  Based on my settings for threshold and learning rate, you should find that the model has converged after sixteen iterations, or four epochs, with these final weights:
 
 $$ w^n_i = \begin{bmatrix} w^n_0\\w^n_1\\w^n_2 \end{bmatrix} = \begin{bmatrix} 0.2\\-0.2\\-0.1 \end{bmatrix} $$
 
@@ -150,31 +183,7 @@ I'm going to be taking advantage of the [Numpy](http://www.numpy.org/) library t
     import numpy as np
     import matplotlib.pyplot as plt
 ```
-Now I'll make the actual prediction using my activation function.
 
-   $$
-	\begin{displaymath}
-	 \hat{y}^1_1 =\begin{cases}
-     1 & \text{if }f \gt z\\
-     0 & \text{otherwise}.
-     \end{cases} $$
-	\end{displaymath}
-   $$
-
-    $$\hat{y}^1_1=0$$
-
-3.  Update the weights  
-
-$$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10} $$ $$ = 0 + 0.1[1-0]1 $$ $$= 0.1$$
-$$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$  $$ = 0 + 0.1[1-0]0 $$ $$= 0$$
-$$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  $$ = 0 + 0.1[1-0]0 $$ $$= 0$$
-$$ w^2_i = \begin{bmatrix}0.1\\0\\0\end{bmatrix}$$
-
-4.  Increment the time step to $$n=n+1$$, therefore $$n=2$$.  Since the time step is not equal to $$50$$, I jump back to step 2. and keep going.
-
-Since there are four tra
-
->>>>>>> c7b35868981ee178345987f46c2bb9695aa4f2aa
 Next I'll enter in my feature data and the outputs.
 
 ```python
@@ -394,11 +403,13 @@ I didn't split the data in the NAND example into training and test sets because 
     # splitting the data into train/test sets
     train = dataset[0:(0.7*(obs*2))]
     test = dataset[(0.7*(obs*2)):(obs*2)]
+```
 
 ### Training the Model
 
 The next step is to train the model to determine the weights.
 
+```python
     # Training the Perceptron
     #
     # Inputs
@@ -572,7 +583,7 @@ Based on the decision boundary, it looks like the model is working.  Another goo
     my perceptron weights:
     [-0.7        -0.43283606  0.42203522]
 ```
-
+ 
 The scikit-learn implementation yielded identical weights to my model.  This isn't surprising given the clear separability of the two datasets.  
 
 I did have to manipulate a few details in the scikit-learn model though.  I turned off the random state and the shuffle option so that the scikit-learn Perceptron would use the same random seed that I set for my model.  I also set the learning rate to the same number as my perceptron.  Finally, I turned of the fit_intercept option.  Since I included the dummy column of ones in the dataset, I'm automatically fitting the intercept, so I don't need this option turned on.
