@@ -141,9 +141,8 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
 1 & \text{if }f \gt z\\\
 0 & \text{otherwise}.
 \end{cases}
+\hat{y}^1_1 = 0
 \end{align}
-
-    $$ \hat{y}^1_1 = 0 $$
 
 3.  Update the weights
 
