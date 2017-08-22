@@ -136,13 +136,16 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
     
     Now I'll make the actual prediction using my activation function.
 	
-\begin{align}
-\hat{y}^1_1 &=\begin{cases}
-1 & \text{if }f \gt z\\\
-0 & \text{otherwise}.
-\end{cases}\\\
-\hat{y}^1_1 = 0
-\end{align}
+    \begin{align}
+    \hat{y}^1_1 &=\begin{cases}
+    1 & \text{if }f \gt z\\\
+    0 & \text{otherwise}.
+    \end{cases}
+    \end{align}
+    
+    \begin{align}
+    \hat{y}^1_1 = 0
+    \end{align}
 
 3.  Update the weights
 
