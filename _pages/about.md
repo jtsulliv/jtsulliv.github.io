@@ -2,7 +2,7 @@
 title: "About"
 permalink: /about/
 header:
-  image: "zakim.jpg"
+  image: "zakim_new.jpg"
 ---
 
 I'm a Senior Analyst in a consulting role to the government, with a background in computational physics, mathematical modeling, and numerical methods.  
