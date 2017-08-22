@@ -39,8 +39,6 @@ The Perceptron is pretty straightforward.  Here's the basics:
     0 & \text{otherwise}.
     \end{cases}
     \end{align}
-    
-    Made a change.
    
 3.  Update the $$k$$ weights  
 
