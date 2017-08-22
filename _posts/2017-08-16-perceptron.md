@@ -143,29 +143,29 @@ Now I'm going to start working through the algorithm outlined above, step-by-ste
 \end{cases}
 \end{align}
 
-$$ \hat{y}^1_1 = 0 $$
+    $$ \hat{y}^1_1 = 0 $$
 
 3.  Update the weights
 
-	$$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
+	  $$w^2_0 = w^1_0 + \eta [y_1-\hat{y}^1_1]x_{10}$$  
 	
-	$$ = 0 +0.1[1-0]1 $$
+	  $$ = 0 +0.1[1-0]1 $$
 	
-	$$ = 0.1 $$
+	  $$ = 0.1 $$
 
-	$$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$
+	  $$w^2_1 = w^1_1 + \eta [y_1-\hat{y}^1_1]x_{11}$$
 	
-	$$ = 0 +0.1[1-0]0 $$
+	  $$ = 0 +0.1[1-0]0 $$
 	
-	$$ = 0 $$
+	  $$ = 0 $$
 
-	$$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  
+	  $$w^2_2 = w^1_2 + \eta [y_1-\hat{y}^1_1]x_{12}$$  
 	
-	$$ = 0 +0.1[1-0]0 $$
+	  $$ = 0 +0.1[1-0]0 $$
 	
-	$$ = 0 $$
+	  $$ = 0 $$
 	
-	$$ w^2_i = \begin{bmatrix} 0.1\\0\\0 \end{bmatrix} $$
+	  $$ w^2_i = \begin{bmatrix} 0.1\\0\\0 \end{bmatrix} $$
 	
 4.  Increment the time step to $$ n = n + 1 $$, therefore $$ n = 2 $$.  Since the time step is not equal to 50, I jump back to step 2. and keep going.
 
