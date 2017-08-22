@@ -1,8 +1,9 @@
 ---
-title: "About
+title: "About"
 permalink: /about/
 header:
   image: "zakim_new.jpg"
+  caption: "Photo by Robbie Shade"
   
 ---
 
