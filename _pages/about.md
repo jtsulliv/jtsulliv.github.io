@@ -1,10 +1,8 @@
 ---
-layout: archive
+title: "About
 permalink: /about/
-title: "About"
 header:
   image: "zakim_new.jpg"
-  caption: "Photo by Robbie Shade"
   
 ---
 
