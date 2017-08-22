@@ -4,7 +4,7 @@ permalink: /datascience/
 title: "Data Science Posts by Tags"
 author_profile: true
 header:
-  image: "fort point_again.jpg"
+  image: "fort point_new.jpg"
   caption: "Photo by Tim Sackton"
 
 ---
