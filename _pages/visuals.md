@@ -1,14 +1,14 @@
 ---
 layout: archive
-permalink: /visuals/
-title: "Visualizations by Tags"
+permalink: /quantitative-finance/
+title: "Quantitative Finance Posts by Tags"
 author_profile: true
 header:
-  image: "japanese_arches.jpg"
-  caption: "Photo credit: Ginny Lehman"
+  image: 
+  caption: 
 
 ---
-
+Quntitative Finance Posts.
 {% include base_path %}
 {% include group-by-array collection=site.portfolio field="tags" %}
 
