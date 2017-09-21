@@ -1,5 +1,5 @@
 ---
-title:  "Perceptron from Scratch"
+title:  "Neural Network from Scratch"
 date:   2017-08-16
 tags: [neural networks, machine learning, mathematics]
 
@@ -7,9 +7,9 @@ header:
   image: "perceptron/perceptron_2.png"
 
 
-excerpt: "Neural Networks, Stochastic Gradient Descent"
+excerpt: "Neural Networks, Perceptron, Stochastic Gradient Descent"
 ---
-**Python Code:** [Perceptron from Scratch](https://github.com/jtsulliv/ML-from-scratch/tree/master/Neural-Networks)
+**Python Code:** [Neural Network from Scratch](https://github.com/jtsulliv/ML-from-scratch/tree/master/Neural-Networks)
 
 The single-layer [Perceptron](https://en.wikipedia.org/wiki/Perceptron) is the simplest of the artificial neural networks (ANNs).  It was developed by American psychologist [Frank Rosenblatt](https://en.wikipedia.org/wiki/Frank_Rosenblatt) in the 1950s.  
 
