@@ -1,10 +1,10 @@
 # main links links
 main:
-  - title: "about"
+  - title: "About"
     url: /about/
 
-  - title: "data science"
+  - title: "Data Science"
     url: /datascience/
 
-  - title: "quantitative finance"
+  - title: "Quantitative Finance"
     url: /quantitative-finance/
