@@ -4,7 +4,7 @@ date:   2017-09-21
 tags: [mathematics]
 
 header:
-  image: "gbm/wall_street.png"
+  image: "gbm/wall_street_2.png"
 
 
 excerpt: "Quantitative Finance, Stochastic Calculus, Geometric Brownian Motion"
