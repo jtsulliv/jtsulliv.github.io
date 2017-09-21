@@ -9,7 +9,7 @@ header:
 
 excerpt: "Quantitative Finance, Stochastic Calculus, Geometric Brownian Motion"
 ---
-**Python Code:** TBD
+**Python Code:** [Stock Price Dynamics with Python](https://github.com/jtsulliv/Quantitative-Finance/tree/master/Brownian%20Motion)
 
 Modeling stock price dynamics is an important aspect of mathematical finance.  Simulating stock price movements allows an algorithmic trader to test different strategies.  Policy makers at the federal reserve can evaluate risk and volatility using similar models.  
 
