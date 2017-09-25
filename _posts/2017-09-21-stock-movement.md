@@ -354,7 +354,6 @@ plt.legend(loc = 'upper left')
 ```
 
 ![png](/images/gbm/output_22_2.png?raw=True)
-![png](output_22_2.png)
 
 We can see from the plot that depending on our random numbers generated, the path can take on any number of shapes.  Testing trading strategies against a large number of these simulations is a good idea because it shows how well our model is able to generalize.  If we were to fit a model on any one given path we would likely overfit our data.
 
