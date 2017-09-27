@@ -404,8 +404,8 @@ I didn't split the data in the NAND example into training and test sets because 
     np.random.shuffle(dataset)
 
     # splitting the data into train/test sets
-    train = dataset[0:(0.7*(obs*2))]
-    test = dataset[(0.7*(obs*2)):(obs*2)]
+    train = dataset[0:int(0.7*(obs*2))]
+    test = dataset[int(0.7*(obs*2)):(obs*2)]
 ```
 
 ### Training the Model
