@@ -2,6 +2,7 @@
 title:  "Neural Network from Scratch"
 date:   2017-08-16
 tags: [neural networks, machine learning, mathematics]
+permalink: /neural-network-from-scratch/
 
 header:
   image: "perceptron/perceptron_2.png"
