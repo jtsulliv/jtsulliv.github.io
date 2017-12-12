@@ -16,12 +16,33 @@ In this article I'm going to focus on customer retention.  To do this, I'm going
 
 The motivation for this model is return on investment (ROI).  If a company interacted with every single customer, the cost would be astronomical.  Focusing retention efforts on a small subset of high risk customers is a much more effective strategy.
 
-##Wrangling the Data
+## Wrangling the Data
 The [dataset](https://www.ibm.com/communities/analytics/watson-analytics-blog/guide-to-sample-datasets/) I'm going to be working with can be found on the IBM Watson Analytics website.
 
 This is a sample dataset for a telecommunications company.  We can start by taking a look at the dimensions of the data, as well as the different features.
 
 ```r
+library(tidyverse)
+library(miscset)
+
+# Setting the working directory
+path_loc <- "C:/Users/jsullivan/Desktop/Storage/Data Science/Portfolio/Projects/Churn Prediction"
+setwd(path_loc)
+
+# reading in the data
+df <- read_csv("Telco data.csv")
+
+
+# dimensions of the data
+dim_desc(df)
+
+# names of the data
+names(df)
+```
+
+This is a test...
+
+```python
 library(tidyverse)
 library(miscset)
 
