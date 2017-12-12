@@ -5,7 +5,7 @@ tags: [machine learning]
 
 excerpt: "Churn Prediction, Logistic Regression, Random Forest, AUC, Cross-Validation"
 ---
-##Introduction
+
 Subscription based services typically make money in the following three ways:
 
 1) Acquire new customers
@@ -17,12 +17,11 @@ In this article I'm going to focus on customer retention.  To do this, I'm going
 The motivation for this model is return on investment (ROI).  If a company interacted with every single customer, the cost would be astronomical.  Focusing retention efforts on a small subset of high risk customers is a much more effective strategy.
 
 ##Wrangling the Data
-The dataset I'm going to be working with can be found on the IBM Watson Analytics website: <https://www.ibm.com/communities/analytics/watson-analytics-blog/guide-to-sample-datasets/>.
+The [dataset](https://www.ibm.com/communities/analytics/watson-analytics-blog/guide-to-sample-datasets/) I'm going to be working with can be found on the IBM Watson Analytics website.
 
 This is a sample dataset for a telecommunications company.  We can start by taking a look at the dimensions of the data, as well as the different features.
 
-```{r, message=FALSE, warning=FALSE}
-
+```r
 library(tidyverse)
 library(miscset)
 
