@@ -40,7 +40,7 @@ dim_desc(df)
 names(df)
 ```
 
-This is a test...
+This is a test, take two...
 
 ```python
 library(tidyverse)
