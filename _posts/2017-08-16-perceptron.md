@@ -1,5 +1,5 @@
 ---
-title:  "Neural Network from Scratch"
+title:  "Neural Network from Scratch: Perceptron Linear Classifier"
 date:   2017-08-16
 tags: [neural networks, machine learning, mathematics]
 
