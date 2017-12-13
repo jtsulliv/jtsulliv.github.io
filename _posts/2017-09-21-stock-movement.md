@@ -1,5 +1,5 @@
 ---
-title:  "Stock Price Dynamics with Python"
+title:  "Stochastic Calculus with Python: Simulating Stock Price Dynamics"
 date:   2017-09-21
 tags: [mathematics]
 
@@ -10,10 +10,6 @@ header:
 excerpt: "Quantitative Finance, Stochastic Calculus, Geometric Brownian Motion"
 ---
 **Python Code:** [Stock Price Dynamics with Python](https://github.com/jtsulliv/Quantitative-Finance/tree/master/Brownian%20Motion)
-
-Modeling stock price dynamics is an important aspect of mathematical finance.  Simulating stock price movements allows an algorithmic trader to test different strategies.  Policy makers at the federal reserve can evaluate risk and volatility using similar models.  
-
-It's important to keep in mind that every financial model contains assumptions and limitations.  Understanding these limitations is a crucial part of being a responsible practitioner.  At any rate, stochastic models are still a valuable tool for assessing risk and volatility.
 
 ## Geometric Brownian Motion
 Simulations of stocks and options are often modeled using stochastic differential equations (SDEs).  Because of the randomness associated with stock price movements, the models cannot be developed using ordinary differential equations (ODEs).
