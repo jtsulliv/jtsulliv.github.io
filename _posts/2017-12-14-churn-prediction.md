@@ -1,7 +1,7 @@
 ---
 title: "Churn Prediction with R: Logistic Regression and Random Forest"
 date: 2017-12-14
-tage: [machine learning]
+tags: [machine learning]
 
 header:
   image: "churn/churn_image2.jpg"
