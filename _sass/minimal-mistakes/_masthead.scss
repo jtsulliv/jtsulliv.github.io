@@ -59,7 +59,7 @@
     margin-left: 0;
 
     @include breakpoint($small) {
-      float: right;
+      float: left;
     }
   }
 
