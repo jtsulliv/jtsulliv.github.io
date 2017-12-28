@@ -9,7 +9,7 @@ header:
 
 excerpt: "Churn Prediction, R, Logistic Regression, Random Forest, AUC, Cross-Validation"
 ---
-**R Code:** [Churn Prediction with R](tbd)
+**R Code:** [Churn Prediction with R](https://github.com/jtsulliv/Machine-Learning/tree/master/churn-prediction)
 
 In the [previous article](https://jtsulliv.github.io/churn-eda/) I performed an exploratory data analysis of a customer churn dataset from the telecommunications industry.  In this article I'm going to be building predictive models.  
 
