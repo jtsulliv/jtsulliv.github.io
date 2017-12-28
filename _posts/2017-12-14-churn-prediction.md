@@ -15,6 +15,8 @@ In the [previous article](https://jtsulliv.github.io/churn-eda/) I performed an 
 
 The motivation for these models is return on investment (ROI).  If a company interacted with every single customer, the cost would be astronomical.  Focusing retention efforts on a small subset of high risk customers is a much more effective strategy.
 
+At the end of the article I'll present a hypothetical business scenario in which I project a yearly savings of $4MM in customer retention costs.  This cost savings is achieved by optimizing the threshold of a logistic regression model.  I will make some basic assumptions about customer acquisition and customer retention costs, as well as the size of the telecommunications company.
+
 ## Predictive Models
 To make predictions, I'm going to use both logistic regression and random forest.
 
@@ -679,7 +681,7 @@ Doing another quick search, it looks like customer acquisition cost is approxima
 
 Here's the equation for cost that I'm going to try and minimize:
 
-cost = FN*300 + TP*60 + FP*60 + TN*0
+cost = FN(300) + TP(60) + FP(60) + TN(0)
 
 Since the logistic regression model seemed to perform slightly better, I'll use that model.
 
@@ -699,10 +701,59 @@ glm.pred[churn.probs > 0.5] = "Yes"
 
 x <- confusionMatrix(glm.pred, test$Churn, positive = "Yes")
 
-# threshold values
+# cost as a function of threshold
 thresh <- seq(0.1,1.0, length = 10)
-t = rep()
+cost = rep(0,length(thresh))
 for (i in 1:length(thresh)){
-  t[[i]] = thresh[[i]]
+
+  glm.pred = rep("No", length(churn.probs))
+  glm.pred[churn.probs > thresh[i]] = "Yes"
+  x <- confusionMatrix(glm.pred, test$Churn, positive = "Yes")
+  TN <- x$table[1]/1760
+  FP <- x$table[2]/1760
+  FN <- x$table[3]/1760
+  TP <- x$table[4]/1760
+  cost[i] = FN*300 + TP*60 + FP*60 + TN*0
 }
+
+
+# simple model - assume threshold is 0.5
+glm.pred = rep("No", length(churn.probs))
+glm.pred[churn.probs > 0.5] = "Yes"
+x <- confusionMatrix(glm.pred, test$Churn, positive = "Yes")
+TN <- x$table[1]/1760
+FP <- x$table[2]/1760
+FN <- x$table[3]/1760
+TP <- x$table[4]/1760
+cost_simple = FN*300 + TP*60 + FP*60 + TN*0
+
+
+# putting results in a dataframe for plotting
+dat <- data.frame(
+  model = c(rep("optimized",10),"simple"),
+  cost_thresh = c(cost,cost_simple),
+  thresh_plot = c(thresh,0.5)
+)
+
+ggplot(dat, aes(x = thresh_plot, y = cost_thresh, group = model, colour = model)) +
+  geom_line() +
+  geom_point()
+
+
+# cost savings of optimized model (threshold = 0.2) compared to baseline model (threshold = 0.5)
+
+savings_per_customer = cost_simple - min(cost)
+
+total_savings = 500000*savings_per_customer
+
+## total savings:  4107955
 ```
+![jpg](/images/churn/image20.jpg?raw=True)
+
+If we assume that our baseline model is the logistic regression model with a threshold of 0.5, the cost associated with this model is $48/customer.
+
+If we optimize the model and use a threshold of 0.2, our customer retention cost is reduced to $40/customer.
+
+Assuming a customer base of 500,000 this comes out to a yearly savings of over $4MM.  
+
+This example illustrates the value of optimizing a machine learning model for accuracy, as well as impact on the business.  
