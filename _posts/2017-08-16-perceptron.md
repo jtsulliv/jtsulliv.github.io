@@ -13,7 +13,7 @@ excerpt: "Neural Networks, Perceptron, Stochastic Gradient Descent"
 
 The single-layer [Perceptron](https://en.wikipedia.org/wiki/Perceptron) is the simplest of the artificial neural networks (ANNs).  It was developed by American psychologist [Frank Rosenblatt](https://en.wikipedia.org/wiki/Frank_Rosenblatt) in the 1950s.  
 
-The Perceptron is a linear classifier used for binary predictions.  This means that in order for it to work, the data must be [linearly separable](https://en.wikipedia.org/wiki/Linear_separability).
+Like [Logistic Regression](https://www.dataoptimal.com/logistic-regression/), the Perceptron is a linear classifier used for binary predictions.  This means that in order for it to work, the data must be [linearly separable](https://en.wikipedia.org/wiki/Linear_separability).
 
 ![png](/images/perceptron/linsep_new.png?raw=True)
 
