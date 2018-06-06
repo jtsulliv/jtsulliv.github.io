@@ -11,7 +11,7 @@ excerpt: "Churn Prediction, R, Logistic Regression, Random Forest, AUC, Cross-Va
 ---
 **R Code:** [Churn Prediction with R](https://github.com/jtsulliv/Machine-Learning/tree/master/churn-prediction)
 
-In the [previous article](https://jtsulliv.github.io/churn-eda/) I performed an exploratory data analysis of a customer churn dataset from the telecommunications industry.  In this article I'm going to be building predictive models using [Logistic Regression](https://www.dataoptimal.com/logistic-regression/) and Random Forest.  
+In the [previous article](https://jtsulliv.github.io/churn-eda/) I performed an exploratory data analysis of a customer churn dataset from the telecommunications industry.  In this article I'm going to be building predictive models using Logistic Regression and Random Forest.  
 
 The motivation for these models is return on investment (ROI).  If a company interacted with every single customer, the cost would be astronomical.  Focusing retention efforts on a small subset of high risk customers is a much more effective strategy.
 
