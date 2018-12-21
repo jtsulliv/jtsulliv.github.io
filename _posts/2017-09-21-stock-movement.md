@@ -241,7 +241,7 @@ def daily_return(adj_close):
     for i in xrange(0, len(adj_close)-1):
         today = adj_close[i+1]
         yesterday = adj_close[i]
-        daily_return = (today - yesterday)/today
+        daily_return = (today - yesterday)/yesterday
         returns.append(daily_return)
     return returns
 
